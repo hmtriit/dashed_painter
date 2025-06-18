@@ -1,34 +1,51 @@
 # Changelog
 
-Tất cả các thay đổi đáng chú ý cho package `flutter_dash_painter` sẽ được ghi lại tại đây.
+All notable changes to the `flutter_dash_painter` package will be documented here.
+
+This project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
-## [1.0.0] - 2025-06-17
+## [1.0.2] - 2025-06-18
 
-🎉 **Phiên bản đầu tiên phát hành**
+### Fixed
+- Export issues related to main `dashed_painter.dart` file
+- Minor formatting updates in API docs
 
-- Hỗ trợ vẽ đường nét đứt (dash line) cho mọi `Path`
-- Hỗ trợ `CustomPainter` để vẽ:
-  - Đường thẳng (ngang, dọc)
-  - Hình tròn (`addOval`)
-  - Hình chữ nhật bo góc (`addRRect`)
-- Hỗ trợ cấu hình:
-  - `step`: độ dài mỗi nét vẽ
-  - `span`: khoảng trắng giữa các nét
-  - `pointCount`: số lượng chấm nhỏ
-  - `pointWidth`: chiều dài mỗi chấm
-- Thêm `DashDecoration` để sử dụng trong `Container` dễ dàng
+### Added
+- Unit tests and widget tests for `DashedPainter` and `DashedDecoration`
+- Benchmarks via `BenchmarkPainter` example
 
 ---
 
 ## [1.0.1] - 2025-06-17
 
-- Fix minor export issues
-- Add documentation and public API exports
+### Fixed
+- Minor export issues with internal files
+- Resolved missing documentation in public APIs
 
-## [1.0.2] - 2025-06-18
+### Added
+- Added DartDoc comments for pub.dev
+- Stable API entry point via `lib/dashed_painter.dart`
 
-- Fix minor export issues
-- Add documentation and formatting
-- Add Testting
+---
+
+## [1.0.0] - 2025-06-17
+
+🎉 **Initial release**
+
+### Added
+- Core painter (`DashedPainter`) to render dashed lines using Canvas
+- Support for:
+  - Straight lines (horizontal/vertical)
+  - Circle shapes (`addOval`)
+  - Rounded rectangles (`addRRect`)
+- Fully customizable:
+  - `step`: dash length
+  - `span`: space between dashes
+  - `pointCount`: number of dots per dash
+  - `pointWidth`: length of each dot
+- `DashedDecoration` to easily apply dashed borders to `Container`
+- Supports `color` and `gradient` (e.g. `SweepGradient`)
+
+---
