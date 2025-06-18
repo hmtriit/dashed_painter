@@ -21,6 +21,14 @@ Tất cả các thay đổi đáng chú ý cho package `flutter_dash_painter` s�
 - Thêm `DashDecoration` để sử dụng trong `Container` dễ dàng
 
 ---
+
 ## [1.0.1] - 2025-06-17
+
 - Fix minor export issues
 - Add documentation and public API exports
+
+## [1.0.2] - 2025-06-18
+
+- Fix minor export issues
+- Add documentation and formatting
+- Add Testting
