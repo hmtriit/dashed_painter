@@ -42,9 +42,10 @@ class DashedPainter {
     final PathMetrics metrics = path.computeMetrics();
     final bool hasDots = pointCount > 0;
     final double dotLength = hasDots ? (pointWidth ?? paint.strokeWidth) : 0.0;
-    final double partLength = hasDots
-        ? step + span * (pointCount + 1) + dotLength * pointCount
-        : step + span;
+    final double partLength =
+        hasDots
+            ? step + span * (pointCount + 1) + dotLength * pointCount
+            : step + span;
 
     for (final PathMetric pm in metrics) {
       final double length = pm.length;
@@ -63,8 +64,7 @@ class DashedPainter {
         // Dots
         if (hasDots) {
           for (int j = 1; j <= pointCount; j++) {
-            final double dotStart =
-                solidEnd + span * j + dotLength * (j - 1);
+            final double dotStart = solidEnd + span * j + dotLength * (j - 1);
             final double dotEnd = dotStart + dotLength;
             if (dotEnd <= length) {
               canvas.drawPath(pm.extractPath(dotStart, dotEnd), paint);

@@ -1,6 +1,6 @@
 name: dashed_painter
 description: "A simple Flutter plugin to draw dashed lines and shapes on canvas easily."
-version: 1.0.0
+version: 1.0.1
 homepage:
 
 environment:

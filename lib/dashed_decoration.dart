@@ -85,21 +85,16 @@ class _DashedBoxPainter extends BoxPainter {
     if (size == null) return;
 
     final rect = offset & size;
-    final zone = Rect.fromLTWH(
-      rect.left,
-      rect.top,
-      rect.width,
-      rect.height,
-    );
+    final zone = Rect.fromLTWH(rect.left, rect.top, rect.width, rect.height);
 
     final Radius radius = decoration.radius ?? Radius.zero;
 
-    final path = Path()
-      ..addRRect(RRect.fromRectAndRadius(zone, radius));
+    final path = Path()..addRRect(RRect.fromRectAndRadius(zone, radius));
 
-    final paint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = decoration.strokeWidth;
+    final paint =
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = decoration.strokeWidth;
 
     if (decoration.gradient != null) {
       paint.shader = decoration.gradient!.createShader(zone);

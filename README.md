@@ -1,31 +1,27 @@
 # 🖌️ dashed_painter
 
-`dashed_painter` là một plugin Flutter giúp bạn vẽ **đường nét đứt (dash lines)** và **đường chấm - gạch (dot-dash)** một cách đơn giản trên `Canvas`.  
-Thích hợp dùng trong `CustomPainter`, `Decoration`, hoặc bất kỳ nơi nào sử dụng đối tượng `Canvas`.
+`dashed_painter` is a Flutter plugin that helps you easily draw **dashed lines** and **dot-dash patterns** on a `Canvas`.  
+Ideal for use in `CustomPainter`, `Decoration`, or anywhere a `Canvas` is used.
 
 ---
 
-## 🚀 Cài đặt
+## 🚀 Installation
 
-Thêm vào file `pubspec.yaml`:
+Add the package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
   dashed_painter: ^1.0.0
-
-# hoặc
-flutter pub add dashed_painter
 ```
-
-Sau đó, chạy lệnh sau để cài đặt package:
 
 ```bash
-flutter pub get
+flutter pub add dashed_painter
+
 ```
 
-## 🎨 Cách sử dụng
+## 🎨 Usage
 
-1. Dùng trong CustomPainter
+1. Drawing with CustomPainter
 
 ```dart
 class MyDashedLinePainter extends CustomPainter {
@@ -48,7 +44,7 @@ class MyDashedLinePainter extends CustomPainter {
 }
 ```
 
-2. Dùng trong Decoration
+2. Drawing with DashedDecoration (BoxDecoration-like)
 
 ```dart
 Container(
@@ -68,50 +64,90 @@ Container(
 )
 ```
 
-✨ Tính năng
-
-✅ Vẽ đường nét đứt (dashed line)
-
-✅ Vẽ đường chấm - gạch (dot-dash)
-
-✅ Vẽ đường nét đứt trên hình học bất kỳ (path)
-
-✅ Vẽ đường nét đứt trên hình học phức tạp (complex path)
-
-✅ Tùy chỉnh độ dài nét (step), khoảng trắng (span)
-
-✅ Hỗ trợ gradient với DashedDecoration
-
-✅ Dễ dùng, không cần widget mới
-
-🧩 API DashedPainter
-| Thuộc tính | Mô tả | Kiểu | Mặc định |
-| ------------ | ----------------------------------------- | -------- | -------- |
-| `span` | Độ dài khoảng trắng giữa các nét | `double` | 4.0 |
-| `step` | Độ dài nét vẽ (mỗi đoạn) | `double` | 9.0 |
-| `pointCount` | Số chấm trong mỗi đoạn | `int` | 0 |
-| `pointWidth` | Độ dài mỗi chấm nếu dùng `pointCount > 0` | `double` | 2.0 |
-
-🧱 API DashDecoration
-Tất cả thuộc tính của DashedPainter +:
-| Thuộc tính | Mô tả | Kiểu |
-| ---------- | --------------------------------------- | ----------- |
-| `radius` | Bo góc hình chữ nhật | `Radius?` |
-| `gradient` | Gradient màu viền (SweepGradient, v.v.) | `Gradient?` |
-
-📂 Thư mục mẫu
+You can also use gradients:
 
 ```dart
+decoration: DashedDecoration(
+  step: 6,
+  span: 3,
+  strokeWidth: 1.5,
+  radius: Radius.circular(12),
+  gradient: SweepGradient(colors: [Colors.red, Colors.green, Colors.blue]),
+),
+
+```
+
+✨ Features
+
+✅ Draw solid dashed lines
+
+✅ Draw dot-dash patterns
+
+✅ Supports drawing on arbitrary shapes and complex paths
+
+✅ Fully customizable step, span, and dot details
+
+✅ Works with Canvas or BoxDecoration
+
+✅ Gradient support via DashedDecoration
+
+✅ Lightweight, no custom widget required
+
+🧩 API DashedPainter
+| Property | Description | Type | Default |
+| ------------ | ----------------------------------------- | --------- | ---------------------------------- |
+| `span` | Space between each dash segment | `double` | `4.0` |
+| `step` | Length of each dash segment | `double` | `9.0` |
+| `pointCount` | Number of dots per segment (for dot-dash) | `int` | `0` |
+| `pointWidth` | Length of each dot (if `pointCount > 0`) | `double?` | `null` (falls back to strokeWidth) |
+
+🧱 API DashDecoration
+Includes all properties from `DashedPainter`:
+| Property | Description | Type |
+| ------------- | ------------------------------------------- | ----------- |
+| `radius` | Corner radius of the border rectangle | `Radius?` |
+| `strokeWidth` | Thickness of the dashed line | `double` |
+| `color` | Border color (ignored if `gradient` is set) | `Color?` |
+| `gradient` | Border gradient (`SweepGradient`, etc.) | `Gradient?` |
+
+📂 Example Structure
+
+```vpnet
 dashed_painter/
 ├── lib/
 │   └── dashed_painter.dart
+├── lib/
+│   └── dashed_decoration.dart
 ├── example/
-│   └── main.dart
+│   └── lib/
+│       ├── main.dart
+│       └── benchmark_painter.dart
+├── test/
+│   └── dashed_painter_test.dart
 ├── README.md
 ├── LICENSE
 └── pubspec.yaml
+
+```
+
+📦 Example
+
+Try the interactive benchmark and decoration examples in the example/ project:
+
+```bash
+cd example
+flutter run
+```
+
+🧪 Testing
+Unit tests for internal logic (step/span calculations) are included in /test.
+
+To run:
+
+```bash
+flutter test
 ```
 
 ## 📝 Giấy phép
 
-`dashed_painter` được cấp phép theo giấy phép MIT.
+This project is licensed under the MIT License.
