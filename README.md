@@ -148,6 +148,6 @@ To run:
 flutter test
 ```
 
-## 📝 Giấy phép
+## 📝 License
 
 This project is licensed under the MIT License.
