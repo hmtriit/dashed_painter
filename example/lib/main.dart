@@ -1,11 +1,18 @@
-import 'package:dash_painter/dash_painter.dart';
+import 'package:dashed_painter/dashed_painter.dart';
 import 'package:flutter/material.dart';
+
+import 'benchmark_screen.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    /// start benchmark
+    //return const MaterialApp(home: BenchmarkScreen());
+    /// end benchmark
+
+    /// start demo
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Dash Painter Demo',
@@ -14,7 +21,7 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: CustomPaint(
             size: Size(400, 400),
-            painter: DashRoundedRectPainter(),
+            painter: DashedGeometryPainter(),
           ),
         ),
       ),
@@ -31,7 +38,7 @@ class DashHorizontalLinePainter extends CustomPainter {
     final paint =
         Paint()
           ..style = PaintingStyle.stroke
-          ..color = Colors.orangeAccent
+          ..color = Colors.blue
           ..strokeWidth = 1;
 
     final path =
@@ -39,7 +46,7 @@ class DashHorizontalLinePainter extends CustomPainter {
           ..moveTo(-200, 0)
           ..lineTo(200, 0);
 
-    const DashPainter(span: 4, step: 9).paint(canvas, path, paint);
+    const DashedPainter(span: 4, step: 9).paint(canvas, path, paint);
   }
 
   @override
@@ -55,7 +62,7 @@ class DashVerticalLinePainter extends CustomPainter {
     final paint =
         Paint()
           ..style = PaintingStyle.stroke
-          ..color = Colors.orangeAccent
+          ..color = Colors.blue
           ..strokeWidth = 1;
 
     final path =
@@ -63,7 +70,7 @@ class DashVerticalLinePainter extends CustomPainter {
           ..moveTo(0, -200)
           ..lineTo(0, 200);
 
-    const DashPainter(span: 4, step: 9).paint(canvas, path, paint);
+    const DashedPainter(span: 4, step: 9).paint(canvas, path, paint);
   }
 
   @override
@@ -79,13 +86,13 @@ class DashCirclePainter extends CustomPainter {
     final paint =
         Paint()
           ..style = PaintingStyle.stroke
-          ..color = Colors.orangeAccent
+          ..color = Colors.blue
           ..strokeWidth = 1;
 
     final path =
         Path()..addOval(Rect.fromCircle(center: Offset.zero, radius: 80));
 
-    const DashPainter(span: 4, step: 9).paint(canvas, path, paint);
+    const DashedPainter(span: 4, step: 9).paint(canvas, path, paint);
   }
 
   @override
@@ -101,7 +108,7 @@ class DashRoundedRectPainter extends CustomPainter {
     final paint =
         Paint()
           ..style = PaintingStyle.stroke
-          ..color = Colors.orangeAccent
+          ..color = Colors.blue
           ..strokeWidth = 1;
 
     final path =
@@ -112,7 +119,7 @@ class DashRoundedRectPainter extends CustomPainter {
           ),
         );
 
-    const DashPainter(span: 4, step: 9).paint(canvas, path, paint);
+    const DashedPainter(span: 4, step: 9).paint(canvas, path, paint);
   }
 
   @override
@@ -128,7 +135,7 @@ class DashedGeometryPainter extends CustomPainter {
     Paint paint =
         Paint()
           ..style = PaintingStyle.stroke
-          ..color = Colors.orangeAccent
+          ..color = Colors.blue
           ..strokeWidth = 1;
 
     final Path path = Path();
@@ -144,7 +151,7 @@ class DashedGeometryPainter extends CustomPainter {
         Radius.circular(20),
       ),
     );
-    const DashPainter(span: 4, step: 9).paint(canvas, path, paint);
+    const DashedPainter(span: 4, step: 9).paint(canvas, path, paint);
   }
 
   @override

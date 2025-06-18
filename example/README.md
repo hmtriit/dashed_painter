@@ -1,6 +1,6 @@
-# dash_painter_example
+# flutter_dash_painter_example
 
-Demonstrates how to use the dash_painter plugin.
+Demonstrates how to use the flutter_dash_painter plugin.
 
 ## Getting Started
 

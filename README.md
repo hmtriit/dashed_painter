@@ -1,6 +1,6 @@
-# 🖌️ dash_painter
+# 🖌️ dashed_painter
 
-`dash_painter` là một plugin Flutter giúp bạn vẽ **đường nét đứt (dash lines)** và **đường chấm - gạch (dot-dash)** một cách đơn giản trên `Canvas`.  
+`dashed_painter` là một plugin Flutter giúp bạn vẽ **đường nét đứt (dash lines)** và **đường chấm - gạch (dot-dash)** một cách đơn giản trên `Canvas`.  
 Thích hợp dùng trong `CustomPainter`, `Decoration`, hoặc bất kỳ nơi nào sử dụng đối tượng `Canvas`.
 
 ---
@@ -11,10 +11,10 @@ Thêm vào file `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  dash_painter: ^1.0.0
+  flutter_dash_painter: ^1.0.0
 
 # hoặc
-flutter pub add dash_painter
+flutter pub add dashed_painter
 ```
 
 Sau đó, chạy lệnh sau để cài đặt package:
@@ -84,7 +84,7 @@ Container(
 
 ✅ Dễ dùng, không cần widget mới
 
-🧩 API DashPainter
+🧩 API DashedPainter
 | Thuộc tính | Mô tả | Kiểu | Mặc định |
 | ------------ | ----------------------------------------- | -------- | -------- |
 | `span` | Độ dài khoảng trắng giữa các nét | `double` | 4.0 |
@@ -102,9 +102,9 @@ Tất cả thuộc tính của DashPainter +:
 📂 Thư mục mẫu
 
 ```dart
-dash_painter/
+dashed_painter/
 ├── lib/
-│   └── dash_painter.dart
+│   └── dashed_painter.dart
 ├── example/
 │   └── main.dart
 ├── README.md
@@ -114,4 +114,4 @@ dash_painter/
 
 ## 📝 Giấy phép
 
-`dash_painter` được cấp phép theo giấy phép MIT.
+`dashed_painter` được cấp phép theo giấy phép MIT.

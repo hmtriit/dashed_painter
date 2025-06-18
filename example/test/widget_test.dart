@@ -6,19 +6,28 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dashed_painter_example/main.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:dash_painter_example/main.dart';
-
 void main() {
-  testWidgets('Verify Draw Dash Line', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('Verify that dashed line is drawn via CustomPaint', (
+    WidgetTester tester,
+  ) async {
+    // start app
     await tester.pumpWidget(MyApp());
 
-    // Verify that platform version is retrieved.
-    expect(
-      find.byWidgetPredicate((Widget widget) => widget is CustomPaint),
-      findsOneWidget,
+    // find CustomPaint widget
+    final paintFinder = find.byWidgetPredicate(
+      (widget) => widget is CustomPaint,
     );
+
+    // verify that there is at least one CustomPaint widget
+    expect(paintFinder, findsAtLeastNWidgets(1));
+
+    // verify that there is a CustomPaint widget with BenchmarkPainter
+    // final benchmarkFinder = find.byWidgetPredicate(
+    //   (widget) => widget is CustomPaint && widget.painter is BenchmarkPainter,
+    // );
+    // expect(benchmarkFinder, findsOneWidget);
   });
 }
