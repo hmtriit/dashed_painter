@@ -11,7 +11,7 @@ Thêm vào file `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_dash_painter: ^1.0.0
+  dashed_painter: ^1.0.0
 
 # hoặc
 flutter pub add dashed_painter
@@ -40,7 +40,7 @@ class MyDashedLinePainter extends CustomPainter {
       ..moveTo(0, 0)
       ..lineTo(size.width, 0);
 
-    const DashPainter(span: 4, step: 8).paint(canvas, path, paint);
+    const DashedPainter(span: 4, step: 8).paint(canvas, path, paint);
   }
 
   @override
@@ -60,7 +60,7 @@ Container(
       width: 2,
     ),
     borderRadius: BorderRadius.circular(20),
-    decoration: const DashDecoration(
+    decoration: const DashedDecoration(
       span: 4,
       step: 8,
     ),
@@ -80,7 +80,7 @@ Container(
 
 ✅ Tùy chỉnh độ dài nét (step), khoảng trắng (span)
 
-✅ Hỗ trợ gradient với DashDecoration
+✅ Hỗ trợ gradient với DashedDecoration
 
 ✅ Dễ dùng, không cần widget mới
 
@@ -93,7 +93,7 @@ Container(
 | `pointWidth` | Độ dài mỗi chấm nếu dùng `pointCount > 0` | `double` | 2.0 |
 
 🧱 API DashDecoration
-Tất cả thuộc tính của DashPainter +:
+Tất cả thuộc tính của DashedPainter +:
 | Thuộc tính | Mô tả | Kiểu |
 | ---------- | --------------------------------------- | ----------- |
 | `radius` | Bo góc hình chữ nhật | `Radius?` |
